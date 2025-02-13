@@ -18,7 +18,6 @@ services:
             - MYSQL_ROOT_PASSWORD=ROOT
             - MYSQL_DATABASE=pimcore
             - MYSQL_USER=pimcore
-            - MYSQL_PASSWORD=pimcore
         healthcheck:
             # The service is considered healthy when:
             # - connection to pimcore db can be established, and
@@ -88,7 +87,7 @@ services:
         extends: php
         environment:
             APP_ENV: test
-            PIMCORE_TEST_DB_DSN: ${PIMCORE_TEST_DB_DSN:-mysql://pimcore:pimcore@test-db/pimcore}
+            PIMCORE_TEST_DB_DSN: ${PIMCORE_TEST_DB_DSN:-mysql://pimcore@test-db/pimcore}
             PIMCORE_INSTALL_ADMIN_USERNAME: pimcore
             PIMCORE_INSTALL_ADMIN_PASSWORD: pimcore
             PIMCORE_INSTALL_MYSQL_HOST_SOCKET: test-db
